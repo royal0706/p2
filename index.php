@@ -21,31 +21,29 @@ require 'logic.php';
     <h2>Trip Saving Calculator</h2>
     <p>Calculate how much you need to save a month to make the trip of your dreams become a reality!</p>
 
-    <h2>Expenses</h2>
-
     <form method='GET' action='search.php'>
 
-        <fieldset>
-        <label >Your Destination:
-        <input type='text' name='yourDestination' value=''></label><br><br>
+    <label >Your Destination:
+    <input type='text' name='yourDestination' value=''></label>
 
-        <label>Airfare Total:
-        <input type='text' name='airfareTotal' value=''></label><br><br>
+    <label>Airfare Total:
+    <input type='text' name='airfareTotal' value=''></label>
 
-        <label for='hotelTotal'>Hotel Total:
-        <input type='text' name='hotelTotal' value=''></label><br><br>
+    <label for='hotelTotal'>Hotel Total:
+    <input type='text' name='hotelTotal' value=''></label>
 
-        <label for='months'>How long do you have to save for your trip?
-        <select name='months' id='months'>
-            <option value='choose'>Choose one option</option>
-            <option value='threemonths' >Three Months</option>
-            <option value='sixmonths' >Six Months</option>
-            <option value='twelvemonths' >One Year</option>
-            <option value='twentyfourmonth' >Two Years</option>
-        </select></label><br><br>
+
+    <lable>How long do you have to save for your trip? </label>
+         <ul class='radios'>
+             <li><label><input type='radio' name='day' value='mon'>Three Months</label>
+             <li><label><input type='radio' name='day' value='tue'>Six Months</label>
+             <li><label><input type='radio' name='day' value='wed'>One Year</label>
+             <li><label><input type='radio' name='day' value='thu'>Two Years</label>
+         </ul>
+
+          <label><input type='checkbox' value='mon'> Check if you will be splitting these expenses with someone else</label>
 
         <input type='submit' value='Start Saving!' class='btn btn-primary'>
-        </fieldset>
     </form>
 
     <a class='return' href='/forms-inputs'>

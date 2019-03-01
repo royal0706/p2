@@ -1,0 +1,17 @@
+input[type=text] {
+    display: block;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-top: 20px;
+}
+
+ul.checkboxes, ul.radios, ul.text {
+   list-style-type: none;
+   padding: 2px;
+}
+a.return:link {
+   display: block;
+   margin-top: 10px;
+}

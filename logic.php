@@ -1,9 +1,10 @@
 <?php
+
 /*
  * This is the logic file for index.php; it's job is to check the
  * SESSION for results, and if available, store the results in variables we
  * can display in index.php
- */
+
 session_start();
 $hasErrors = false;
 # Get `results` data from session, if available

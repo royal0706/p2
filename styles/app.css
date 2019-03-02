@@ -3,15 +3,21 @@ input[type=text] {
     margin-bottom: 20px;
 }
 
-label {
+/* label {
+    display: block;
     margin-top: 20px;
-}
+}  */
 
-ul.checkboxes, ul.radios, ul.text {
+ul.radios {
    list-style-type: none;
    padding: 2px;
 }
 a.return:link {
    display: block;
-   margin-top: 10px;
+
+}
+
+select {
+    display: block;
+    margin-bottom: 20px;
 }

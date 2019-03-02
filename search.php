@@ -1,4 +1,18 @@
 <?php
+require 'includes/helpers.php';
+
+#Get data from form request
+$destination = $_GET['yourDestination'];
+dump($destination);
+
+$airfare = $_GET['yourAirfare'];
+dump($airfare);
+
+$hotel = $_GET['yourHotel'];
+dump($hotel);
+
+#Filter book data according to search term
+
 /*
  * This is the script that the form on index.php submits to
  * Its job is to:
@@ -6,7 +20,7 @@
  * 2. Load the books and then filter them based on the search term
  * 3. Store the results in the SESSION
  * 4. Redirect the visitor back to index.php
- */
+
 require 'includes/helpers.php';
 require 'Book.php';
 require 'Form.php';

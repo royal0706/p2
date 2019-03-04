@@ -1,54 +1,80 @@
 <?php
 require 'includes/helpers.php';
-
-#Get data from form request
-$destination = $_GET['yourDestination'];
-dump($destination);
-
-$airfare = $_GET['yourAirfare'];
-dump($airfare);
-
-$hotel = $_GET['yourHotel'];
-dump($hotel);
-
-#Filter book data according to search term
-
-/*
- * This is the script that the form on index.php submits to
- * Its job is to:
- * 1. Get the data from the form request
- * 2. Load the books and then filter them based on the search term
- * 3. Store the results in the SESSION
- * 4. Redirect the visitor back to index.php
-
-require 'includes/helpers.php';
-require 'Book.php';
 require 'Form.php';
-use Foobooks0\Book;
+
 use DWA\Form;
+
 # We'll be storing data in the session, so initiate it
 session_start();
-# Instantiate our objects
-$book = new Book('books.json');
-$form = new Form($_POST);
-# Get data from form request
-$searchTerm = $form->get('searchTerm');
-$caseSensitive = $form->has('caseSensitive');
-# Validate the form data
-$errors = $form->validate([
-    'searchTerm' => 'required'
-]);
+
+$form = new Form($_GET);
+
+#Get data from form request
+$destination = $form->get('yourDestination');
+$airfare = $form->get('yourAirfare');
+$airfarecurrency = $form->get('airfarecurrency');
+$hotel = $form->get('yourHotel');
+$hotelcurrency = $form->get('hotelcurrency');
+$months = $form->get('months');
+
+$errors = $form->validate(
+    [
+        'yourDestination' => 'required|alpha',
+        'yourAirfare' => 'required|numeric',
+        'yourHotel' => 'required|numeric',
+        'months' => 'required',
+    ]
+);
+
+#Functions
 if(!$form->hasErrors) {
-    $books = $book->getByTitle($caseSensitive, $searchTerm);
+    if ($airfarecurrency == 'USD') {
+        $airfarecon = 1;
+    } else if ($airfarecurrency == 'GBP') {
+        $airfarecon = 1.35;
+    } else if ($airfarecurrency == 'EUR') {
+        $airfarecon = 1.12;
+    }
+
+    $airfaretotal = $airfare * $airfarecon;
+
+    if ($hotelcurrency == 'USD') {
+        $hotelcon = 1;
+    } else if ($hotelcurrency == 'GBP') {
+        $hotelcon = 1.35;
+    } else if ($hotelcurrency == 'EUR') {
+        $hotelcon = 1.12;
+    }
+
+    $hoteltotal = $hotel * $hotelcon;
+    $total = ($airfaretotal + $hoteltotal);
+
+    if ($months == 'threemonths') {
+        $monthnumber = 3;
+    } else if ($months == 'sixmonths') {
+        $monthnumber = 6;
+    } else if ($months == 'twelvemonths') {
+        $monthnumber = 12;
+    } else if ($months == 'twentyfourmonths') {
+        $monthnumber = 24;
+    }
+
+    $save = $total / $monthnumber;
+    $saveround = round($save);
 }
+
 # Store our results data in the SESSION so it's available when we redirect back to index.php
 $_SESSION['results'] = [
     'errors' => $errors,
     'hasErrors' => $form->hasErrors,
-    'searchTerm' => $searchTerm,
-    'books' => $books ?? null,
-    'bookCount' => isset($books) ? count($books) : 0,
-    'caseSensitive' => $caseSensitive,
+    'yourDestination' => $destination,
+    'yourAirfare' => $airfare,
+    'airfarecurrency' => $airfarecurrency,
+    'yourHotel' => $hotel,
+    'hotelcurrency' => $hotelcurrency,
+    'months' => $months,
+    'saveround' => $saveround,
 ];
-# Redirect back to the form on index.php
+
+# Redirect back to index.php
 header('Location: index.php');

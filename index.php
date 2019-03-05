@@ -7,7 +7,7 @@ require 'logic.php';
 <html lang='en'>
 <head>
     <title>Trip Jar</title>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather%7CRoboto+Condensed" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/app.css">
     <meta charset="utf-8">
 
@@ -29,7 +29,7 @@ require 'logic.php';
 
         <label>Airfare Total:</label>
         <input type='number' name='yourAirfare' value='<?= $airfare ?? '' ?>'>
-        <label for='currency'>Currency</label>
+        <label>Currency</label>
         <select name='airfarecurrency'>
             <option value='USD' <?php if (isset($airfarecurrency) and $airfarecurrency == 'USD') echo 'selected' ?>>USD</option>
             <option value='GBP' <?php if (isset($airfarecurrency) and $airfarecurrency == 'GBP') echo 'selected' ?>>GBP</option>
@@ -38,7 +38,7 @@ require 'logic.php';
 
         <label>Hotel Total:</label>
         <input type='number' name='yourHotel' value='<?= $hotel ?? '' ?>'>
-        <label for='currency'>Currency</label>
+        <label>Currency</label>
         <select name='hotelcurrency'>
             <option value='USD' <?php if (isset($hotelcurrency) and $hotelcurrency == 'USD') echo 'selected' ?>>USD</option>
             <option value='GBP' <?php if (isset($hotelcurrency) and $hotelcurrency == 'GBP') echo 'selected' ?>>GBP</option>

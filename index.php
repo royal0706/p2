@@ -24,45 +24,45 @@ require 'logic.php';
 
     <form method='GET' action='search.php'>
 
-        <label>Destination:
-            <input type='text' name='yourDestination' value='<?= $destination ?? '' ?>'></label>
+        <label>Destination:</label>
+        <input type='text' name='yourDestination' value='<?= $destination ?? '' ?>'>
 
-        <label>Airfare Total:
-            <input type='number' name='yourAirfare' value='<?= $airfare ?? '' ?>'>
-            <label for='currency'>Currency</label>
-            <select name='airfarecurrency'>
-                <option value='USD' <?php if (isset($airfarecurrency) and $airfarecurrency == 'USD') echo 'selected' ?>>USD</option>
-                <option value='GBP' <?php if (isset($airfarecurrency) and $airfarecurrency == 'GBP') echo 'selected' ?>>GBP</option>
-                <option value='EUR' <?php if (isset($airfarecurrency) and $airfarecurrency == 'EUR') echo 'selected' ?>>EUR</option>
-            </select>
+        <label>Airfare Total:</label>
+        <input type='number' name='yourAirfare' value='<?= $airfare ?? '' ?>'>
+        <label for='currency'>Currency</label>
+        <select name='airfarecurrency'>
+            <option value='USD' <?php if (isset($airfarecurrency) and $airfarecurrency == 'USD') echo 'selected' ?>>USD</option>
+            <option value='GBP' <?php if (isset($airfarecurrency) and $airfarecurrency == 'GBP') echo 'selected' ?>>GBP</option>
+            <option value='EUR' <?php if (isset($airfarecurrency) and $airfarecurrency == 'EUR') echo 'selected' ?>>EUR</option>
+        </select>
 
-            <label for='hotelTotal'>Hotel Total:
-                <input type='number' name='yourHotel' value='<?= $hotel ?? '' ?>'></label>
-            <label for='currency'>Currency</label>
-            <select name='hotelcurrency'>
-                <option value='USD' <?php if (isset($hotelcurrency) and $hotelcurrency == 'USD') echo 'selected' ?>>USD</option>
-                <option value='GBP' <?php if (isset($hotelcurrency) and $hotelcurrency == 'GBP') echo 'selected' ?>>GBP</option>
-                <option value='EUR' <?php if (isset($hotelcurrency) and $hotelcurrency == 'EUR') echo 'selected' ?>>EUR</option>
-            </select>
+        <label for='hotelTotal'>Hotel Total:</label>
+        <input type='number' name='yourHotel' value='<?= $hotel ?? '' ?>'>
+        <label for='currency'>Currency</label>
+        <select name='hotelcurrency'>
+            <option value='USD' <?php if (isset($hotelcurrency) and $hotelcurrency == 'USD') echo 'selected' ?>>USD</option>
+            <option value='GBP' <?php if (isset($hotelcurrency) and $hotelcurrency == 'GBP') echo 'selected' ?>>GBP</option>
+            <option value='EUR' <?php if (isset($hotelcurrency) and $hotelcurrency == 'EUR') echo 'selected' ?>>EUR</option>
+        </select>
 
-            <label>How long do you have to save for your trip? </label>
-            <ul class='radios'>
-                <li><label><input type='radio'
-                                  name='months'
-                                  value='threemonths' <?php if (isset($months) and $months == 'threemonths') echo 'checked' ?>>Three Months</label>
-                <li><label><input type='radio'
-                                  name='months'
-                                  value='sixmonths' <?php if (isset($months) and $months == 'sixmonths') echo 'checked' ?>>Six Months</label>
-                <li><label><input type='radio'
-                                  name='months'
-                                  value='twelvemonths' <?php if (isset($months) and $months == 'twelvemonths') echo 'checked' ?>>One Year</label>
-                <li><label><input type='radio'
-                                  name='months'
-                                  value='twentyfourmonths' <?php if (isset($months) and $months == 'twentyfourmonths') echo 'checked' ?>>Two Years</label>
-            </ul>
+        <label>How long do you have to save for your trip? </label>
+        <ul class='radios'>
+            <li><label><input type='radio'
+                              name='months'
+                              value='threemonths' <?php if (isset($months) and $months == 'threemonths') echo 'checked' ?>>Three Months</label>
+            <li><label><input type='radio'
+                              name='months'
+                              value='sixmonths' <?php if (isset($months) and $months == 'sixmonths') echo 'checked' ?>>Six Months</label>
+            <li><label><input type='radio'
+                              name='months'
+                              value='twelvemonths' <?php if (isset($months) and $months == 'twelvemonths') echo 'checked' ?>>One Year</label>
+            <li><label><input type='radio'
+                              name='months'
+                              value='twentyfourmonths' <?php if (isset($months) and $months == 'twentyfourmonths') echo 'checked' ?>>Two Years</label>
+        </ul>
 
 
-            <input type='submit' value='Start Saving' class='btn btn-primary'>
+        <input type='submit' value='Start Saving' class='btn btn-primary'>
     </form>
 
 

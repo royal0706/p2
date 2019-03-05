@@ -77,4 +77,4 @@ $_SESSION['results'] = [
 ];
 
 # Redirect back to index.php
-header('Location: index.php');
+header('Location:/index.php');

@@ -36,7 +36,7 @@ require 'logic.php';
             <option value='EUR' <?php if (isset($airfarecurrency) and $airfarecurrency == 'EUR') echo 'selected' ?>>EUR</option>
         </select>
 
-        <label for='hotelTotal'>Hotel Total:</label>
+        <label>Hotel Total:</label>
         <input type='number' name='yourHotel' value='<?= $hotel ?? '' ?>'>
         <label for='currency'>Currency</label>
         <select name='hotelcurrency'>

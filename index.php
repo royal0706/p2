@@ -25,40 +25,40 @@ require 'logic.php';
     <form method='GET' action='search.php'>
 
         <label>Destination:</label>
-        <input type='text' name='yourDestination' value='<?= $destination ?? '' ?>'>
+        <input type='text' name='destination' value='<?= $destination ?? '' ?>'>
 
         <label>Airfare Total:</label>
-        <input type='number' name='yourAirfare' value='<?= $airfare ?? '' ?>'>
+        <input type='number' name='airfare' value='<?= $airfare ?? '' ?>'>
         <label>Currency</label>
-        <select name='airfarecurrency'>
-            <option value='USD' <?php if (isset($airfarecurrency) and $airfarecurrency == 'USD') echo 'selected' ?>>USD</option>
-            <option value='GBP' <?php if (isset($airfarecurrency) and $airfarecurrency == 'GBP') echo 'selected' ?>>GBP</option>
-            <option value='EUR' <?php if (isset($airfarecurrency) and $airfarecurrency == 'EUR') echo 'selected' ?>>EUR</option>
+        <select name='airfareCurrency'>
+            <option value='usd' <?php if (isset($airfareCurrency) and $airfareCurrency == 'usd') echo 'selected' ?>>USD</option>
+            <option value='gbp' <?php if (isset($airfareCurrency) and $airfareCurrency == 'gbp') echo 'selected' ?>>GBP</option>
+            <option value='eur' <?php if (isset($airfareCurrency) and $airfareCurrency == 'eur') echo 'selected' ?>>EUR</option>
         </select>
 
         <label>Hotel Total:</label>
-        <input type='number' name='yourHotel' value='<?= $hotel ?? '' ?>'>
+        <input type='number' name='hotel' value='<?= $hotel ?? '' ?>'>
         <label>Currency</label>
-        <select name='hotelcurrency'>
-            <option value='USD' <?php if (isset($hotelcurrency) and $hotelcurrency == 'USD') echo 'selected' ?>>USD</option>
-            <option value='GBP' <?php if (isset($hotelcurrency) and $hotelcurrency == 'GBP') echo 'selected' ?>>GBP</option>
-            <option value='EUR' <?php if (isset($hotelcurrency) and $hotelcurrency == 'EUR') echo 'selected' ?>>EUR</option>
+        <select name='hotelCurrency'>
+            <option value='usd' <?php if (isset($hotelCurrency) and $hotelCurrency == 'usd') echo 'selected' ?>>USD</option>
+            <option value='gbp' <?php if (isset($hotelCurrency) and $hotelCurrency == 'gbp') echo 'selected' ?>>GBP</option>
+            <option value='eur' <?php if (isset($hotelCurrency) and $hotelCurrency == 'eur') echo 'selected' ?>>EUR</option>
         </select>
 
         <label>How long do you have to save for your trip? </label>
         <ul class='radios'>
             <li><label><input type='radio'
                               name='months'
-                              value='threemonths' <?php if (isset($months) and $months == 'threemonths') echo 'checked' ?>>Three Months</label>
+                              value='three' <?php if (isset($months) and $months == 'three') echo 'checked' ?>>Three Months</label>
             <li><label><input type='radio'
                               name='months'
-                              value='sixmonths' <?php if (isset($months) and $months == 'sixmonths') echo 'checked' ?>>Six Months</label>
+                              value='six' <?php if (isset($months) and $months == 'six') echo 'checked' ?>>Six Months</label>
             <li><label><input type='radio'
                               name='months'
-                              value='twelvemonths' <?php if (isset($months) and $months == 'twelvemonths') echo 'checked' ?>>One Year</label>
+                              value='twelve' <?php if (isset($months) and $months == 'twelve') echo 'checked' ?>>One Year</label>
             <li><label><input type='radio'
                               name='months'
-                              value='twentyfourmonths' <?php if (isset($months) and $months == 'twentyfourmonths') echo 'checked' ?>>Two Years</label>
+                              value='twentyfour' <?php if (isset($months) and $months == 'twentyfour') echo 'checked' ?>>Two Years</label>
         </ul>
 
 
@@ -84,8 +84,8 @@ require 'logic.php';
             </div>
         <?php endif; ?>
 
-        <?php if (isset($saveround)): ?>
-            <div class='alert-primary'>$<?= $saveround ?></div>
+        <?php if (isset($saveRound)): ?>
+            <div class='alert-primary'>$<?= $saveRound ?></div>
         <?php endif; ?>
     </div>
     <?php endif ?>

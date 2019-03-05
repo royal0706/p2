@@ -6,13 +6,13 @@ $hasErrors = false;
 # Get `results` data from session, if available
 if (isset($_SESSION['results'])) {
     $results = $_SESSION['results'];
-    $destination = $results['yourDestination'];
-    $airfare = $results['yourAirfare'];
-    $airfarecurrency = $results['airfarecurrency'];
-    $hotel = $results['yourHotel'];
-    $hotelcurrency = $results['hotelcurrency'];
+    $destination = $results['destination'];
+    $airfare = $results['airfare'];
+    $airfareCurrency = $results['airfareCurrency'];
+    $hotel = $results['hotel'];
+    $hotelCurrency = $results['hotelCurrency'];
     $months = $results['months'];
-    $saveround = $results['saveround'];
+    $saveRound = $results['saveRound'];
     $errors = $results['errors'];
     $hasErrors = $results['hasErrors'];
 }

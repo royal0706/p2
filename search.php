@@ -10,70 +10,70 @@ session_start();
 $form = new Form($_GET);
 
 #Get data from form request
-$destination = $form->get('yourDestination');
-$airfare = $form->get('yourAirfare');
-$airfarecurrency = $form->get('airfarecurrency');
-$hotel = $form->get('yourHotel');
-$hotelcurrency = $form->get('hotelcurrency');
+$destination = $form->get('destination');
+$airfare = $form->get('airfare');
+$airfareCurrency = $form->get('airfareCurrency');
+$hotel = $form->get('hotel');
+$hotelCurrency = $form->get('hotelCurrency');
 $months = $form->get('months');
 
 $errors = $form->validate(
     [
-        'yourDestination' => 'required|alpha',
-        'yourAirfare' => 'required|numeric',
-        'yourHotel' => 'required|numeric',
+        'destination' => 'required|alpha',
+        'airfare' => 'required|numeric',
+        'hotel' => 'required|numeric',
         'months' => 'required',
     ]
 );
 
 #Functions
 if(!$form->hasErrors) {
-    if ($airfarecurrency == 'USD') {
-        $airfarecon = 1;
-    } else if ($airfarecurrency == 'GBP') {
-        $airfarecon = 1.35;
-    } else if ($airfarecurrency == 'EUR') {
-        $airfarecon = 1.12;
+    if ($airfareCurrency == 'usd') {
+        $airfareCon = 1;
+    } else if ($airfareCurrency == 'gbp') {
+        $airfareCon = 1.35;
+    } else if ($airfareCurrency == 'eur') {
+        $airfareCon = 1.12;
     }
 
-    $airfaretotal = $airfare * $airfarecon;
+    $airfareTotal = $airfare * $airfareCon;
 
-    if ($hotelcurrency == 'USD') {
-        $hotelcon = 1;
-    } else if ($hotelcurrency == 'GBP') {
-        $hotelcon = 1.35;
-    } else if ($hotelcurrency == 'EUR') {
-        $hotelcon = 1.12;
+    if ($hotelCurrency == 'usd') {
+        $hotelCon = 1;
+    } else if ($hotelCurrency == 'gbp') {
+        $hotelCon = 1.35;
+    } else if ($hotelCurrency == 'eur') {
+        $hotelCon = 1.12;
     }
 
-    $hoteltotal = $hotel * $hotelcon;
-    $total = ($airfaretotal + $hoteltotal);
+    $hotelTotal = $hotel * $hotelCon;
+    $total = ($airfareTotal + $hotelTotal);
 
-    if ($months == 'threemonths') {
-        $monthnumber = 3;
-    } else if ($months == 'sixmonths') {
-        $monthnumber = 6;
-    } else if ($months == 'twelvemonths') {
-        $monthnumber = 12;
-    } else if ($months == 'twentyfourmonths') {
-        $monthnumber = 24;
+    if ($months == 'three') {
+        $monthNumber = 3;
+    } else if ($months == 'six') {
+        $monthNumber = 6;
+    } else if ($months == 'twelve') {
+        $monthNumber = 12;
+    } else if ($months == 'twentyfour') {
+        $monthNumber = 24;
     }
 
-    $save = $total / $monthnumber;
-    $saveround = round($save);
+    $save = $total / $monthNumber;
+    $saveRound = round($save);
 }
 
 # Store our results data in the SESSION so it's available when we redirect back to index.php
 $_SESSION['results'] = [
     'errors' => $errors,
     'hasErrors' => $form->hasErrors,
-    'yourDestination' => $destination,
-    'yourAirfare' => $airfare,
-    'airfarecurrency' => $airfarecurrency,
-    'yourHotel' => $hotel,
-    'hotelcurrency' => $hotelcurrency,
+    'destination' => $destination,
+    'airfare' => $airfare,
+    'airfareCurrency' => $airfareCurrency,
+    'hotel' => $hotel,
+    'hotelCurrency' => $hotelCurrency,
     'months' => $months,
-    'saveround' => $saveround,
+    'saveRound' => $saveRound,
 ];
 
 # Redirect back to index.php
